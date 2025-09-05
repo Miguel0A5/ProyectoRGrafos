@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Merge {
 
-        public static void ejecutar() {
+    public static void ejecutar() {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -61,50 +61,60 @@ public class Merge {
     public static void mostrarConcepto() {
         System.out.println("\n--- Qué es Merge Sort ---\n");
         System.out.println("Merge Sort es un algoritmo de ordenamiento eficiente\n" +
-                           "que utiliza el enfoque de 'divide y vencerás'.\n" +
-                           "Consiste en dividir el arreglo en partes más pequeñas,\n" +
-                           "ordenarlas y luego combinarlas (merge) en orden.\n" +
-                           "Complejidad: O(n log n)\n");
+                "que utiliza el enfoque de 'divide y vencerás'.\n" +
+                "Consiste en dividir el arreglo en partes más pequeñas,\n" +
+                "ordenarlas y luego combinarlas (merge) en orden.\n" +
+                "Complejidad: O(n log n)\n");
     }
 
-    // ===================== OPCIÓN 2: Concepto =====================
-    public static void mostrarConcepto() {
-        System.out.println("\n--- Qué es Merge Sort ---\n");
-        System.out.println("Merge Sort es un algoritmo de ordenamiento eficiente\n" +
-                           "que utiliza el enfoque de 'divide y vencerás'.\n" +
-                           "Consiste en dividir el arreglo en partes más pequeñas,\n" +
-                           "ordenarlas y luego combinarlas (merge) en orden.\n" +
-                           "Complejidad: O(n log n)\n");
+    // ===================== OPCIÓN 3: Ejecutar programa =====================
+    public static void ejecutarPrograma(Scanner sc) {
+        final int MAX_NUMEROS = 1000;
+        long[] array = null;
+
+        System.out.println("\nINSTRUCCIONES:");
+        System.out.println("1. Ingresa la cantidad de números que quieres ordenar.");
+        System.out.println("2. Ingresa cada número uno por uno.");
+        System.out.println("3. El programa mostrará el arreglo original y el ordenado.");
+        System.out.println("-------------------------------------------------\n");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
 }
