@@ -43,3 +43,30 @@ public class MergeSort {
             R[j] = arr[medio + 1 + j];
         }
 
+        // Combinar arreglos temporales
+        int i = 0, j = 0, k = izq;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copiar elementos restantes
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+    
