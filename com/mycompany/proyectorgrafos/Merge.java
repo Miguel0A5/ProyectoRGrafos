@@ -57,6 +57,17 @@ public class Merge {
         System.out.println("          [5, 12, 23, 34, 67, 89]\n");
     }
 
+    // ===================== OPCIÓN 2: Concepto =====================
+    public static void mostrarConcepto() {
+        System.out.println("\n--- Qué es Merge Sort ---\n");
+        System.out.println("Merge Sort es un algoritmo de ordenamiento eficiente\n" +
+                           "que utiliza el enfoque de 'divide y vencerás'.\n" +
+                           "Consiste en dividir el arreglo en partes más pequeñas,\n" +
+                           "ordenarlas y luego combinarlas (merge) en orden.\n" +
+                           "Complejidad: O(n log n)\n");
+    }
+
+
     
 
 
