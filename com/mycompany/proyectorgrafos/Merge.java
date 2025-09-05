@@ -79,42 +79,72 @@ public class Merge {
         System.out.println("-------------------------------------------------\n");
     }
 
+    while(true){
+        System.out.print("¿Cuántos números deseas ordenar? (Máx " + MAX_NUMEROS
+                + ", escribe 0 para regresar al menú): ");
+        String entrada = sc.nextLine();
 
+        int n;
+        try {
+            n = Integer.parseInt(entrada);
+            if (n == 0) {
+                System.out.println("Regresando al menú principal...\n");
+                return;
+            } else if (n < 0) {
+                System.out.println("Debes ingresar un número mayor que 0.");
+                continue;
+            } else if (n > MAX_NUMEROS) {
+                System.out.println("Número demasiado grande. Máx permitido: " + MAX_NUMEROS);
+                continue;
+            } else {
+                array = new long[n];
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida. Ingresa solo números enteros.");
+            continue;
+        }
 
+        int i = 0;
+        while (i < array.length) {
+            System.out.print("Número " + (i + 1) + " (o escribe 'salir' para cambiar la cantidad): ");
+            String input = sc.nextLine();
 
+            if (input.equalsIgnoreCase("salir")) {
+                System.out.println("Regresando para modificar la cantidad de números...\n");
+                break;
+            }
 
+            try {
+                array[i] = Long.parseLong(input);
+                i++;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Ingresa un número entero o 'salir'.");
+            }
+        }
 
+        if (i == array.length) {
+            break;
+        }
+    }
 
+    System.out.println("\nArreglo original:");
 
+    mostrarArreglo(array);
 
+        System.out.println("\n==========================================");
+        System.out.println("=== EJEMPLO DEL PROCESO MERGE SORT ===");
+        System.out.println("==========================================\n");
 
+        MergeSort.mergeSortConDiagrama(array, 0, array.length - 1, 0);
 
+        System.out.println("\nArreglo ordenado con Merge Sort:");
+        mostrarArreglo(array);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("\n¡Proceso completado! Ahora entiendes cómo funciona Merge Sort :)\n");
+    }
 
 
 
     
+
 }
