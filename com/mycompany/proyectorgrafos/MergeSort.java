@@ -27,3 +27,19 @@ public class MergeSort {
         }
     }
 
+       // Método para combinar dos subarreglos
+    public static void merge(long[] arr, int izq, int medio, int der) {
+        int n1 = medio - izq + 1;
+        int n2 = der - medio;
+
+        long[] L = new long[n1];
+        long[] R = new long[n2];
+
+        // Copiar datos a los arreglos temporales
+        for (int i = 0; i < n1; i++) {
+            L[i] = arr[izq + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            R[j] = arr[medio + 1 + j];
+        }
+
