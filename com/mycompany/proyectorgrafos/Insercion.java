@@ -141,3 +141,12 @@ public class Insercion {
         imprimirArreglo(arreglo, n); // Mostramos el arreglo final
         System.out.println("-------------------------------------");
     }
+
+    // Método simple para imprimir un arreglo hasta cierto tamaño
+    private static void imprimirArreglo(int[] arr, int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
