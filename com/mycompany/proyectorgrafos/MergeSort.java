@@ -69,4 +69,24 @@ public class MergeSort {
         }
     }
 
-    
+       // Método para mostrar un subarreglo como String
+    public static String subArregloToString(long[] arr, int izq, int der) {
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = izq; i <= der; i++) {
+            sb.append(arr[i]);
+            if (i < der) sb.append(", ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    // Explicación del merge paso a paso
+    public static void mostrarMergeExplicativo(long[] arr, int izq, int medio, int der) {
+        System.out.println("--- Merge paso a paso ---");
+        System.out.println("Subarreglo izquierdo : " + subArregloToString(arr, izq, medio));
+        System.out.println("Subarreglo derecho  : " + subArregloToString(arr, medio + 1, der));
+        System.out.println("Se combinan en orden...");
+        System.out.println("Resultado combinado : " + subArregloToString(arr, izq, der) + "\n");
+         System.out.println("==========================================\n");
+    }
+}
