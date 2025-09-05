@@ -75,3 +75,69 @@ public class Insercion {
         System.out.println("Este proceso se repite hasta que todos los elementos están en su lugar. Es simple y eficiente para arreglos pequeños.");
         System.out.println("-------------------------------------");
     }
+
+    // Método que hace todo el trabajo de insertar los números
+    // conInstrucciones = true si es tutorial guiado, false si es práctica
+    private static void trabajarConInsercion(Scanner scanner, boolean conInstrucciones) {
+        String titulo = conInstrucciones ? "TUTORIAL DE INSERCIÓN" : "PRÁCTICA DE INSERCIÓN (SIN INSTRUCCIONES)";
+        System.out.println("\n--- " + titulo + " ---");
+        System.out.print("¿Cuántos números quieres insertar? (Máximo 10): ");
+        int n = 0;
+        try {
+            n = scanner.nextInt();
+            if (n > 10 || n <= 0) {
+                System.out.println("El número debe ser entre 1 y 10.");
+                return; // Si el número no es válido, regresamos
+            }
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Entrada no válida. Por favor, ingresa un número.");
+            scanner.next();
+            return;
+        }
+
+        int[] arreglo = new int[n]; // Creamos el arreglo donde vamos a insertar los números
+        if (conInstrucciones) {
+            System.out.println("Vamos a insertar los números uno por uno.");
+        }
+
+        // Bucle para insertar todos los números
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nIntroduce el número " + (i + 1) + ": ");
+            int numeroAInsertar = 0;
+            try {
+                numeroAInsertar = scanner.nextInt(); // Leemos el número
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Entrada no válida. Por favor, ingresa un número entero.");
+                scanner.next();
+                i--; // Volvemos a pedir el mismo número
+                continue;
+            }
+
+            if (conInstrucciones) {
+                System.out.println("Paso " + (i + 1) + ": Insertando el número " + numeroAInsertar);
+            }
+
+            int j = i - 1;
+            // Movemos los números mayores a la derecha
+            while (j >= 0 && arreglo[j] > numeroAInsertar) {
+                if (conInstrucciones) {
+                    System.out.println("  -> El número " + arreglo[j] + " es mayor que " + numeroAInsertar + ", lo movemos una posición a la derecha.");
+                }
+                arreglo[j + 1] = arreglo[j];
+                j--;
+            }
+
+            // Insertamos el número en su posición correcta
+            arreglo[j + 1] = numeroAInsertar;
+            if (conInstrucciones) {
+                System.out.println("  -> El número " + numeroAInsertar + " se inserta en la posición correcta.");
+                System.out.print("Estado actual del arreglo: ");
+                imprimirArreglo(arreglo, i + 1);
+            }
+        }
+
+        System.out.println("\n¡El arreglo ha sido ordenado completamente!");
+        System.out.print("Arreglo final: ");
+        imprimirArreglo(arreglo, n); // Mostramos el arreglo final
+        System.out.println("-------------------------------------");
+    }
