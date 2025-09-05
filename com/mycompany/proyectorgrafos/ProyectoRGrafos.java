@@ -25,8 +25,9 @@ public class ProyectoRGrafos {
                         break;
 
                     case 2:
+                    Insercion.ejecutar();
                         break;
-
+                     
                     case 3:
                         break;
 
