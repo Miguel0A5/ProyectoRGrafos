@@ -3,6 +3,7 @@ package com.mycompany.proyectorgrafos;
 import java.util.Scanner;
 
 public class Merge {
+    //Merge Miguel y Axel
 
     public static void ejecutar() {
         Scanner sc = new Scanner(System.in);
