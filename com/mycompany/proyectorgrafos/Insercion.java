@@ -65,3 +65,13 @@ public class Insercion {
             scanner.next(); // Limpiamos buffer
         }
     }
+
+    // Explicación básica de qué es la inserción
+    private static void explicarInsercion() {
+        System.out.println("\n--- ¿QUÉ ES LA INSERCIÓN? ---");
+        System.out.println("La inserción es un algoritmo de ordenamiento que construye un arreglo final ordenado, elemento por elemento.");
+        System.out.println("Es como cuando ordenas una mano de cartas: tomas una carta y la pones en la posición correcta entre las cartas que ya tienes ordenadas.");
+        System.out.println("En cada paso, el algoritmo toma un elemento y lo inserta en su lugar adecuado dentro de la parte ya ordenada del arreglo.");
+        System.out.println("Este proceso se repite hasta que todos los elementos están en su lugar. Es simple y eficiente para arreglos pequeños.");
+        System.out.println("-------------------------------------");
+    }
