@@ -29,7 +29,7 @@ public class Merge {
                     mostrarConcepto();
                     break;
                 case "3":
-                    ejecutarPrograma(sc); // el flujo actual de ingreso y Merge Sort
+                    ejecutarPrograma(sc); // tu flujo actual de ingreso y Merge Sort
                     break;
                 case "0":
                     System.out.println("Regresando al menú principal...\n");
@@ -61,10 +61,10 @@ public class Merge {
     public static void mostrarConcepto() {
         System.out.println("\n--- Qué es Merge Sort ---\n");
         System.out.println("Merge Sort es un algoritmo de ordenamiento eficiente\n" +
-                "que utiliza el enfoque de 'divide y vencerás'.\n" +
-                "Consiste en dividir el arreglo en partes más pequeñas,\n" +
-                "ordenarlas y luego combinarlas (merge) en orden.\n" +
-                "Complejidad: O(n log n)\n");
+                           "que utiliza el enfoque de 'divide y vencerás'.\n" +
+                           "Consiste en dividir el arreglo en partes más pequeñas,\n" +
+                           "ordenarlas y luego combinarlas (merge) en orden.\n" +
+                           "Complejidad: O(n log n)\n");
     }
 
     // ===================== OPCIÓN 3: Ejecutar programa =====================
@@ -77,59 +77,57 @@ public class Merge {
         System.out.println("2. Ingresa cada número uno por uno.");
         System.out.println("3. El programa mostrará el arreglo original y el ordenado.");
         System.out.println("-------------------------------------------------\n");
-    }
 
-    while(true){
-        System.out.print("¿Cuántos números deseas ordenar? (Máx " + MAX_NUMEROS
-                + ", escribe 0 para regresar al menú): ");
-        String entrada = sc.nextLine();
+        while (true) {
+            System.out.print("¿Cuántos números deseas ordenar? (Máx " + MAX_NUMEROS
+                    + ", escribe 0 para regresar al menú): ");
+            String entrada = sc.nextLine();
 
-        int n;
-        try {
-            n = Integer.parseInt(entrada);
-            if (n == 0) {
-                System.out.println("Regresando al menú principal...\n");
-                return;
-            } else if (n < 0) {
-                System.out.println("Debes ingresar un número mayor que 0.");
+            int n;
+            try {
+                n = Integer.parseInt(entrada);
+                if (n == 0) {
+                    System.out.println("Regresando al menú principal...\n");
+                    return;
+                } else if (n < 0) {
+                    System.out.println("Debes ingresar un número mayor que 0.");
+                    continue;
+                } else if (n > MAX_NUMEROS) {
+                    System.out.println("Número demasiado grande. Máx permitido: " + MAX_NUMEROS);
+                    continue;
+                } else {
+                    array = new long[n];
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Ingresa solo números enteros.");
                 continue;
-            } else if (n > MAX_NUMEROS) {
-                System.out.println("Número demasiado grande. Máx permitido: " + MAX_NUMEROS);
-                continue;
-            } else {
-                array = new long[n];
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida. Ingresa solo números enteros.");
-            continue;
-        }
 
-        int i = 0;
-        while (i < array.length) {
-            System.out.print("Número " + (i + 1) + " (o escribe 'salir' para cambiar la cantidad): ");
-            String input = sc.nextLine();
+            int i = 0;
+            while (i < array.length) {
+                System.out.print("Número " + (i + 1) + " (o escribe 'salir' para cambiar la cantidad): ");
+                String input = sc.nextLine();
 
-            if (input.equalsIgnoreCase("salir")) {
-                System.out.println("Regresando para modificar la cantidad de números...\n");
+                if (input.equalsIgnoreCase("salir")) {
+                    System.out.println("Regresando para modificar la cantidad de números...\n");
+                    break;
+                }
+
+                try {
+                    array[i] = Long.parseLong(input);
+                    i++;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida. Ingresa un número entero o 'salir'.");
+                }
+            }
+
+            if (i == array.length) {
                 break;
             }
-
-            try {
-                array[i] = Long.parseLong(input);
-                i++;
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Ingresa un número entero o 'salir'.");
-            }
         }
 
-        if (i == array.length) {
-            break;
-        }
-    }
-
-    System.out.println("\nArreglo original:");
-
-    mostrarArreglo(array);
+        System.out.println("\nArreglo original:");
+        mostrarArreglo(array);
 
         System.out.println("\n==========================================");
         System.out.println("=== EJEMPLO DEL PROCESO MERGE SORT ===");
@@ -143,8 +141,11 @@ public class Merge {
         System.out.println("\n¡Proceso completado! Ahora entiendes cómo funciona Merge Sort :)\n");
     }
 
-
-
-    
-
+    // ===================== MÉTODO PARA MOSTRAR ARREGLO =====================
+    public static void mostrarArreglo(long[] arr) {
+        for (long num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
 }
