@@ -41,3 +41,27 @@ public class Insercion {
         // No cerramos el Scanner aquí porque lo usamos en otros menús
         // scanner.close();  
     }
+
+    // Este método maneja el tutorial completo de inserción
+    private static void iniciarTutorialCompleto(Scanner scanner) {
+        trabajarConInsercion(scanner, true); // Primero hacemos el tutorial guiado
+
+        System.out.println("\n--- ¡Felicidades! Has terminado el tutorial. ---");
+        System.out.println("Ahora es tu turno de practicar sin ayuda.");
+        System.out.println("1. Terminar el tutorial y practicar (sin instrucciones)");
+        System.out.println("2. Regresar al Menú Principal");
+        System.out.print("Selecciona una opción: ");
+
+        int opcionFinal;
+        try {
+            opcionFinal = scanner.nextInt(); // Leemos la opción final del usuario
+            if (opcionFinal == 1) {
+                trabajarConInsercion(scanner, false); // Practica sin instrucciones
+            } else if (opcionFinal != 2) {
+                System.out.println("Opción no válida. Regresando al menú principal.");
+            }
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Entrada no válida. Regresando al menú principal.");
+            scanner.next(); // Limpiamos buffer
+        }
+    }
