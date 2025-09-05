@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class Merge {
     //Merge Miguel y Axel
 
+    // ===================== MÉTODO PRINCIPAL DE EJECUCIÓN =====================
     public static void ejecutar() {
         Scanner sc = new Scanner(System.in);
 
+        // Bucle principal del mini menú, permite elegir opciones hasta regresar al menú principal
         while (true) {
             // ===================== MINI MENÚ =====================
             System.out.println("=================================================");
@@ -20,23 +22,24 @@ public class Merge {
             System.out.println("0.- Regresar al menú principal");
 
             System.out.print("Opción: ");
-            String opcion = sc.nextLine();
+            String opcion = sc.nextLine(); // Leer opción del usuario como String
 
+            // ===================== SELECCIÓN DE OPCIONES =====================
             switch (opcion) {
                 case "1":
-                    mostrarEjemploGrafico();
+                    mostrarEjemploGrafico(); // Mostrar ejemplo gráfico del proceso
                     break;
                 case "2":
-                    mostrarConcepto();
+                    mostrarConcepto(); // Mostrar concepto y definición de Merge Sort
                     break;
                 case "3":
-                    ejecutarPrograma(sc); // tu flujo actual de ingreso y Merge Sort
+                    ejecutarPrograma(sc); // Ejecutar el flujo de ingreso de números y ordenamiento
                     break;
                 case "0":
                     System.out.println("Regresando al menú principal...\n");
-                    return; // sale del método y vuelve al MainMenu
+                    return; // Sale del método y vuelve al menú principal
                 default:
-                    System.out.println("Opción inválida. Intenta de nuevo.\n");
+                    System.out.println("Opción inválida. Intenta de nuevo.\n"); // Entrada no válida
             }
         }
     }
@@ -70,72 +73,78 @@ public class Merge {
 
     // ===================== OPCIÓN 3: Ejecutar programa =====================
     public static void ejecutarPrograma(Scanner sc) {
-        final int MAX_NUMEROS = 1000;
-        long[] array = null;
+        final int MAX_NUMEROS = 1000; // Límite máximo de números permitidos
+        long[] array = null; // Arreglo que contendrá los números ingresados
 
+        // Mostrar instrucciones al usuario
         System.out.println("\nINSTRUCCIONES:");
         System.out.println("1. Ingresa la cantidad de números que quieres ordenar.");
         System.out.println("2. Ingresa cada número uno por uno.");
         System.out.println("3. El programa mostrará el arreglo original y el ordenado.");
         System.out.println("-------------------------------------------------\n");
 
+        // ===================== INGRESO DE CANTIDAD DE NÚMEROS =====================
         while (true) {
             System.out.print("¿Cuántos números deseas ordenar? (Máx " + MAX_NUMEROS
                     + ", escribe 0 para regresar al menú): ");
-            String entrada = sc.nextLine();
+            String entrada = sc.nextLine(); // Leer como String para permitir regresar
 
             int n;
             try {
-                n = Integer.parseInt(entrada);
-                if (n == 0) {
+                n = Integer.parseInt(entrada); // Convertir a entero
+                if (n == 0) { // Si es 0, regresar al menú
                     System.out.println("Regresando al menú principal...\n");
                     return;
-                } else if (n < 0) {
+                } else if (n < 0) { // Validación número positivo
                     System.out.println("Debes ingresar un número mayor que 0.");
                     continue;
-                } else if (n > MAX_NUMEROS) {
+                } else if (n > MAX_NUMEROS) { // Validación máximo permitido
                     System.out.println("Número demasiado grande. Máx permitido: " + MAX_NUMEROS);
                     continue;
                 } else {
-                    array = new long[n];
+                    array = new long[n]; // Inicializar arreglo con tamaño n
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) { // Entrada inválida
                 System.out.println("Entrada inválida. Ingresa solo números enteros.");
                 continue;
             }
 
+            // ===================== INGRESO DE LOS NÚMEROS =====================
             int i = 0;
             while (i < array.length) {
                 System.out.print("Número " + (i + 1) + " (o escribe 'salir' para cambiar la cantidad): ");
-                String input = sc.nextLine();
+                String input = sc.nextLine(); // Leer número como String
 
-                if (input.equalsIgnoreCase("salir")) {
+                if (input.equalsIgnoreCase("salir")) { // Permite regresar para cambiar cantidad
                     System.out.println("Regresando para modificar la cantidad de números...\n");
                     break;
                 }
 
                 try {
-                    array[i] = Long.parseLong(input);
-                    i++;
-                } catch (NumberFormatException e) {
+                    array[i] = Long.parseLong(input); // Convertir a long
+                    i++; // Avanzar solo si es válido
+                } catch (NumberFormatException e) { // Entrada no válida
                     System.out.println("Entrada inválida. Ingresa un número entero o 'salir'.");
                 }
             }
 
-            if (i == array.length) {
+            if (i == array.length) { // Si todos los números fueron ingresados correctamente, salir
                 break;
             }
         }
 
+        // ===================== MOSTRAR ARREGLO ORIGINAL =====================
         System.out.println("\nArreglo original:");
         mostrarArreglo(array);
 
+        // ===================== ORDENAMIENTO MERGE SORT =====================
         System.out.println("\n==========================================");
         System.out.println("=== EJEMPLO DEL PROCESO MERGE SORT ===");
         System.out.println("==========================================\n");
 
         MergeSort.mergeSortConDiagrama(array, 0, array.length - 1, 0);
 
+        // ===================== MOSTRAR ARREGLO ORDENADO =====================
         System.out.println("\nArreglo ordenado con Merge Sort:");
         mostrarArreglo(array);
 
