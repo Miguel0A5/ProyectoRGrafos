@@ -25,3 +25,7 @@ public class Merge {
         System.out.println("3. El programa mostrará el arreglo original y el ordenado.");
         System.out.println("-------------------------------------------------\n");
 
+        final int MAX_NUMEROS = 1000;
+        long[] array = null; // arreglo que contendrá los números
+    }
+}
