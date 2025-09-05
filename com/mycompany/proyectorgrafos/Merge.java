@@ -29,7 +29,7 @@ public class Merge {
                     mostrarConcepto();
                     break;
                 case "3":
-                    ejecutarPrograma(sc); // tu flujo actual de ingreso y Merge Sort
+                    ejecutarPrograma(sc); // el flujo actual de ingreso y Merge Sort
                     break;
                 case "0":
                     System.out.println("Regresando al menú principal...\n");
@@ -39,7 +39,45 @@ public class Merge {
             }
         }
     }
+
+    // ===================== OPCIÓN 1: Ejemplo gráfico =====================
+    public static void mostrarEjemploGrafico() {
+        System.out.println("\n--- Ejemplo gráfico de Merge Sort ---\n");
+        System.out.println("Arreglo: [34, 12, 89, 5, 67, 23]");
+        System.out.println("\n                 [34, 12, 89, 5, 67, 23]");
+        System.out.println("                  /                   \\");
+        System.out.println("         [34, 12, 89]                 [5, 67, 23]");
+        System.out.println("           /       \\                    /       \\");
+        System.out.println("       [34]     [12, 89]              [5]      [67, 23]");
+        System.out.println("               /    \\                          /    \\");
+        System.out.println("           [12]    [89]                  [67]      [23]");
+        System.out.println("\n        ---> Se ordenan los subarreglos pequeños");
+        System.out.println("        [12, 34, 89]  y  [5, 23, 67]");
+        System.out.println("\n        ----> Se combinan los grandes <----");
+        System.out.println("          [5, 12, 23, 34, 67, 89]\n");
+    }
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
