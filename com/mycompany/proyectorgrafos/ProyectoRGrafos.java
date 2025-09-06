@@ -21,27 +21,36 @@ public class ProyectoRGrafos {
                 opcion = Integer.parseInt(entrada.nextLine());
                 switch (opcion) {
                     case 1:
-
+                        MiguelShell miguel = new MiguelShell();
+                        miguel.ejecutar;
                         break;
 
                     case 2:
-                    Insercion.ejecutar();
+                    Insercion Arturo = new insercion();    
+                    Arturo.ejecutar();
                         break;
                      
                     case 3:
+                        //No vino murio la paz
                         break;
 
                     case 4:
+                        KevinRadix kevin = new KevinRadix();
+                        kevin.ejecutar();
                         break;
 
                     case 5:
+                        //muerte
                         break;
 
                     case 6:
+                        Merge miguelyaxel = new Merge();
                         Merge.ejecutar();
                         break;
 
                     case 7:
+                        Quicksort eduardo = new Quicksort();
+                        eduardo.ejecutar();
                         break;
 
                     case 8:
